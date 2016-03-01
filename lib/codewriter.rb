@@ -23,5 +23,4 @@
 
 require_relative '../config'
 require_relative 'code_writer/rbmarkdown'
-require_relative 'code_writer/array_mod'
 require_relative 'code_writer/string_mod'

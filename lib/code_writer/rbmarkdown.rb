@@ -52,7 +52,11 @@ end
 #
 #------------------------------------------------------------------------------------------
 
-$output = StIO.new
+def set_output(output = StIO.new)
+  $output = output
+end
+
+set_output
 
 #------------------------------------------------------------------------------------------
 #
@@ -193,5 +197,5 @@ end
 #------------------------------------------------------------------------------------------
 
 def list(text)
-  puts text.align_left.prefix("* ").indent(2)
+  puts text.align_left.prefix("* ", paragraph: true).indent(2)
 end

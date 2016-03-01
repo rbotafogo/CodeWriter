@@ -24,7 +24,7 @@ require "test/unit"
 require 'shoulda'
 
 require '../config' if @platform == nil
-require 'code_writer'
+require 'codewriter'
 
 class CodeWriterTest < Test::Unit::TestCase
 
@@ -59,9 +59,13 @@ class CodeWriterTest < Test::Unit::TestCase
 
       list(<<-EOT)
         First Item
+
         Second Item
+
         Third Item
+
             Fourth Item
+
      Fifth Item
       EOT
       

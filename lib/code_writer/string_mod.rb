@@ -82,18 +82,20 @@ class String
       match ? match[1].size : 0
     end
     indentation_level = indentation_levels.min
-    string.gsub! /^#{' ' * indentation_level}/, '' if indentation_level > 0
+    string.gsub! /^#{' ' * indentation_level}/, '' if indentation_level && indentation_level > 0
     string
   end
 
   #----------------------------------------------------------------------------------------
-  #
+  # Adds a prefix to every line of the string.  If prefix_1 is given, then the first line
+  # will have prefix_1 as its prefix.
   #----------------------------------------------------------------------------------------
 
-  def prefix(prefix, prefix_1 = prefix)
+  def prefix(prefix, prefix_1 = prefix, paragraph: false)
 
-    # str_array = split("\n", -1)
-    split("\n").map
+    split_type = (paragraph)? "\n\n" : "\n"
+    
+    split(split_type).map
       .with_index { |line, i| (i == 0)? prefix_1 + line : prefix + line }.join("\n")
     
   end
