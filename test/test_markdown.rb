@@ -24,9 +24,11 @@ require "test/unit"
 require 'shoulda'
 
 require '../config' if @platform == nil
-require 'codewriter'
+# require 'codewriter'
+require_relative '../../CodeWriter/lib/codewriter'
 
 class CodeWriterTest < Test::Unit::TestCase
+  include Markdown
 
   context "CodeWriter environment" do
 
@@ -44,6 +46,8 @@ class CodeWriterTest < Test::Unit::TestCase
 
     should "create markdown code" do
 
+      set_output
+      
       section("This is a section")
       
       code(<<-EOC)
